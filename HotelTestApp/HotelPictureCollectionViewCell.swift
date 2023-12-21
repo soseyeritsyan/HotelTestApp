@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class HotelPictureCollectionViewCell: UICollectionViewCell {
     
@@ -17,7 +18,7 @@ class HotelPictureCollectionViewCell: UICollectionViewCell {
     
     func configure(imageURL: String) {
         guard let url = URL(string: imageURL) else { return }
-        self.imageView.load(url: url)
+        self.imageView.kf.setImage(with: url)
     }
     
     

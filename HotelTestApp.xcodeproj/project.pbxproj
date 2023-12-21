@@ -27,7 +27,6 @@
 		F54B665A2B31F19A0063B83F /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F54B66482B31F19A0063B83F /* SF-Pro-Display-Semibold.otf */; };
 		F54B665B2B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F54B66492B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf */; };
 		F599997D2B33204700028FA0 /* HotelPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */; };
-		F599997F2B3324C200028FA0 /* Extencion.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599997E2B3324C200028FA0 /* Extencion.swift */; };
 		F59999812B3341C100028FA0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59999802B3341C100028FA0 /* DataManager.swift */; };
 		F5A79E3C2B31A6EA005FB0E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */; };
 		F5A79E3E2B31A6EA005FB0E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A79E3D2B31A6EA005FB0E1 /* SceneDelegate.swift */; };
@@ -36,6 +35,7 @@
 		F5A79E452B31A6EB005FB0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A79E442B31A6EB005FB0E1 /* Assets.xcassets */; };
 		F5A79E482B31A6EB005FB0E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A79E462B31A6EB005FB0E1 /* LaunchScreen.storyboard */; };
 		F5C9145B2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C9145A2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift */; };
+		F5C9145E2B34A15600F49C52 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = F5C9145D2B34A15600F49C52 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,7 +59,6 @@
 		F54B66482B31F19A0063B83F /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		F54B66492B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
 		F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelPictureCollectionViewCell.swift; sourceTree = "<group>"; };
-		F599997E2B3324C200028FA0 /* Extencion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extencion.swift; sourceTree = "<group>"; };
 		F59999802B3341C100028FA0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F5A79E382B31A6EA005FB0E1 /* HotelTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,6 +76,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F5C9145E2B34A15600F49C52 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -137,7 +137,6 @@
 			children = (
 				F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */,
 				F5A79E3D2B31A6EA005FB0E1 /* SceneDelegate.swift */,
-				F599997E2B3324C200028FA0 /* Extencion.swift */,
 				F59999802B3341C100028FA0 /* DataManager.swift */,
 				F5A79E3F2B31A6EA005FB0E1 /* HotelInfoViewController.swift */,
 				F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */,
@@ -168,6 +167,9 @@
 			dependencies = (
 			);
 			name = HotelTestApp;
+			packageProductDependencies = (
+				F5C9145D2B34A15600F49C52 /* Kingfisher */,
+			);
 			productName = HotelTestApp;
 			productReference = F5A79E382B31A6EA005FB0E1 /* HotelTestApp.app */;
 			productType = "com.apple.product-type.application";
@@ -196,6 +198,9 @@
 				Base,
 			);
 			mainGroup = F5A79E2F2B31A6EA005FB0E1;
+			packageReferences = (
+				F5C9145C2B34A15600F49C52 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = F5A79E392B31A6EA005FB0E1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -242,7 +247,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F54B66362B31C6210063B83F /* HotelModel.swift in Sources */,
-				F599997F2B3324C200028FA0 /* Extencion.swift in Sources */,
 				F5A79E402B31A6EA005FB0E1 /* HotelInfoViewController.swift in Sources */,
 				F59999812B3341C100028FA0 /* DataManager.swift in Sources */,
 				F5A79E3C2B31A6EA005FB0E1 /* AppDelegate.swift in Sources */,
@@ -464,6 +468,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F5C9145C2B34A15600F49C52 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F5C9145D2B34A15600F49C52 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F5C9145C2B34A15600F49C52 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F5A79E302B31A6EA005FB0E1 /* Project object */;
 }
