@@ -16,7 +16,7 @@ class PeculiaritieCollectionViewCell: UICollectionViewCell {
     
     func configure(description: String) {
         self.view.backgroundColor = UIColor(named: "AppGrayColor")?.withAlphaComponent(0.2)
-
+        self.view.layer.cornerRadius = 5
         self.descriptionLabel.text = description
     }
     

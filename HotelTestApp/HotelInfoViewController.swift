@@ -22,6 +22,8 @@ class HotelInfoViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
 
     @IBOutlet weak var peculiaritiesCollectionView: UICollectionView!
+    @IBOutlet weak var peculiaritiesCollectionViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var hotelInfoCollectionView: UICollectionView!
 
     @IBOutlet weak var selectNumberButton: UIButton!
@@ -75,12 +77,21 @@ class HotelInfoViewController: UIViewController {
         self.selectNumberButton.layer.cornerRadius = 15
         
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        let height = self.peculiaritiesCollectionView.collectionViewLayout.collectionViewContentSize.height
+        peculiaritiesCollectionViewHeight.constant = height
+        self.view.layoutIfNeeded()
+    }
+    
     @IBAction func selectNumberAction(_ sender: Any) {
     }
     
 }
 
 extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let hotel = self.hotelData else { return 0 }
         
@@ -118,7 +129,17 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 0.0
+        if collectionView == self.peculiaritiesCollectionView {
+            return 10.0
+        }
+        return 0
+    }
+//
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        if collectionView == self.peculiaritiesCollectionView {
+            return 10.0
+        }
+        return 0
     }
     
 }
