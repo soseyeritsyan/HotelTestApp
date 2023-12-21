@@ -95,37 +95,52 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let hotel = self.hotelData else { return 0 }
         
-        if collectionView == self.sliderCollectionView {
-            return hotel.imageUrls.count
+        switch collectionView {
             
-        } else if collectionView == self.peculiaritiesCollectionView {
+        case self.sliderCollectionView:
+            return hotel.imageUrls.count
+        case self.peculiaritiesCollectionView:
             return hotel.aboutTheHotel.peculiarities.count
-
+        default:
+            return 0
         }
-        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let hotel = hotelData else { return UICollectionViewCell() }
         
-        if collectionView == self.sliderCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelPictureCollectionViewCell.cellID, for: indexPath) as? HotelPictureCollectionViewCell {
-                cell.configure(imageURL: hotel.imageUrls[indexPath.row])
-                return cell
-            }
+        switch collectionView {
             
-        } else if collectionView == self.peculiaritiesCollectionView {
-            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeculiaritieCollectionViewCell.cellID, for: indexPath) as? PeculiaritieCollectionViewCell {
-                let peculiarities = hotel.aboutTheHotel.peculiarities
-                cell.configure(description: peculiarities[indexPath.row])
-                return cell
-            }
+        case self.sliderCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelPictureCollectionViewCell.cellID, for: indexPath) as? HotelPictureCollectionViewCell
+            else { return UICollectionViewCell() }
+            
+            cell.configure(imageURL: hotel.imageUrls[indexPath.row])
+            return cell
+            
+        case self.peculiaritiesCollectionView:
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeculiaritieCollectionViewCell.cellID, for: indexPath) as? PeculiaritieCollectionViewCell else { return UICollectionViewCell() }
+            
+            let peculiarities = hotel.aboutTheHotel.peculiarities
+            cell.configure(description: peculiarities[indexPath.row])
+            return cell
+            
+        default:
+            return UICollectionViewCell()
         }
-        return UICollectionViewCell()
     }
     
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        self.pageControl.currentPage = indexPath.item
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = collectionView.frame.width
+        let height = collectionView.frame.height
+        return CGSize(width: width, height: height)
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView == self.sliderCollectionView {
+            let currentIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+            pageControl.currentPage = currentIndex
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -134,7 +149,7 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
         }
         return 0
     }
-//
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
         if collectionView == self.peculiaritiesCollectionView {
             return 10.0
