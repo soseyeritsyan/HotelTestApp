@@ -15,11 +15,16 @@ class HotelInfoViewController: UIViewController {
     
     @IBOutlet weak var ratingView: UIView!
     @IBOutlet weak var ratingLabel: UILabel!
-    @IBOutlet weak var ratingNameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var adressLabel: UILabel!
     @IBOutlet weak var minimalPriceLabel: UILabel!
     @IBOutlet weak var priceForItLabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
+
+    @IBOutlet weak var peculiaritiesCollectionView: UICollectionView!
+    @IBOutlet weak var hotelInfoCollectionView: UICollectionView!
+
+    @IBOutlet weak var selectNumberButton: UIButton!
 
     var hotelData: Hotel? = nil
     
@@ -36,6 +41,7 @@ class HotelInfoViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.hotelData = hotel
                     self.sliderCollectionView.reloadData()
+                    self.peculiaritiesCollectionView.reloadData()
                     self.setupUI()
                 }
                 
@@ -53,24 +59,37 @@ class HotelInfoViewController: UIViewController {
 
         self.pageControl.numberOfPages = hotel.imageUrls.count
         self.pageControl.currentPage = 0
+        self.pageControl.layer.cornerRadius = 5
         
         self.ratingView.layer.cornerRadius = 5
+        self.ratingView.backgroundColor = UIColor(named: "AppYellowColor")?.withAlphaComponent(0.2)
+
         
-        self.ratingLabel.text = "\(hotel.rating)"
-        self.ratingNameLabel.text = hotel.ratingName
+        self.ratingLabel.text = "\(hotel.rating) \(hotel.ratingName)"
         self.nameLabel.text = hotel.name
         self.adressLabel.text = hotel.adress
         self.minimalPriceLabel.text = "от \(hotel.minimalPrice) ₽"
         self.priceForItLabel.text = hotel.priceForIt
+        self.descriptionLabel.text = hotel.aboutTheHotel.description
+        
+        self.selectNumberButton.layer.cornerRadius = 15
         
     }
-
+    @IBAction func selectNumberAction(_ sender: Any) {
+    }
+    
 }
 
 extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let hotel = self.hotelData else { return 0 }
+        
         if collectionView == self.sliderCollectionView {
-            return self.hotelData?.imageUrls.count ?? 0
+            return hotel.imageUrls.count
+            
+        } else if collectionView == self.peculiaritiesCollectionView {
+            return hotel.aboutTheHotel.peculiarities.count
+
         }
         return 0
     }
@@ -83,8 +102,19 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
                 cell.configure(imageURL: hotel.imageUrls[indexPath.row])
                 return cell
             }
+            
+        } else if collectionView == self.peculiaritiesCollectionView {
+            if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PeculiaritieCollectionViewCell.cellID, for: indexPath) as? PeculiaritieCollectionViewCell {
+                let peculiarities = hotel.aboutTheHotel.peculiarities
+                cell.configure(description: peculiarities[indexPath.row])
+                return cell
+            }
         }
         return UICollectionViewCell()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
+        self.pageControl.currentPage = indexPath.item
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

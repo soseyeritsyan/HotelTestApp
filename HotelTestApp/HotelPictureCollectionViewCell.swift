@@ -8,6 +8,7 @@
 import UIKit
 
 class HotelPictureCollectionViewCell: UICollectionViewCell {
+    
     static let cellID = "hotelImageCell"
     
     var currentIndex: Int = 0

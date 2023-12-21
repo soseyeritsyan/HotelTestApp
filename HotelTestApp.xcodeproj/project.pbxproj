@@ -35,6 +35,7 @@
 		F5A79E432B31A6EA005FB0E1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A79E412B31A6EA005FB0E1 /* Main.storyboard */; };
 		F5A79E452B31A6EB005FB0E1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5A79E442B31A6EB005FB0E1 /* Assets.xcassets */; };
 		F5A79E482B31A6EB005FB0E1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5A79E462B31A6EB005FB0E1 /* LaunchScreen.storyboard */; };
+		F5C9145B2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C9145A2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -68,6 +69,7 @@
 		F5A79E442B31A6EB005FB0E1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5A79E472B31A6EB005FB0E1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5A79E492B31A6EB005FB0E1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5C9145A2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeculiaritieCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -134,11 +136,12 @@
 			isa = PBXGroup;
 			children = (
 				F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */,
-				F599997E2B3324C200028FA0 /* Extencion.swift */,
 				F5A79E3D2B31A6EA005FB0E1 /* SceneDelegate.swift */,
-				F5A79E3F2B31A6EA005FB0E1 /* HotelInfoViewController.swift */,
+				F599997E2B3324C200028FA0 /* Extencion.swift */,
 				F59999802B3341C100028FA0 /* DataManager.swift */,
+				F5A79E3F2B31A6EA005FB0E1 /* HotelInfoViewController.swift */,
 				F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */,
+				F5C9145A2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift */,
 				F54B66352B31C6210063B83F /* HotelModel.swift */,
 				F5A79E412B31A6EA005FB0E1 /* Main.storyboard */,
 				F54B665D2B31F1D60063B83F /* Fonts */,
@@ -244,6 +247,7 @@
 				F59999812B3341C100028FA0 /* DataManager.swift in Sources */,
 				F5A79E3C2B31A6EA005FB0E1 /* AppDelegate.swift in Sources */,
 				F599997D2B33204700028FA0 /* HotelPictureCollectionViewCell.swift in Sources */,
+				F5C9145B2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift in Sources */,
 				F5A79E3E2B31A6EA005FB0E1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
