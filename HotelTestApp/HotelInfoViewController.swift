@@ -7,6 +7,8 @@
 
 import UIKit
 
+typealias HotelInfo = (image: UIImage?, title: String, description: String)
+
 class HotelInfoViewController: UIViewController {
 
     @IBOutlet weak var sliderView: UIView!
@@ -24,11 +26,19 @@ class HotelInfoViewController: UIViewController {
     @IBOutlet weak var peculiaritiesCollectionView: UICollectionView!
     @IBOutlet weak var peculiaritiesCollectionViewHeight: NSLayoutConstraint!
     
-    @IBOutlet weak var hotelInfoCollectionView: UICollectionView!
+    @IBOutlet weak var hotelInfoTableView: UITableView!
 
+    @IBOutlet weak var hotelInfoTableViewHeight: NSLayoutConstraint!
+    
     @IBOutlet weak var selectNumberButton: UIButton!
 
     var hotelData: Hotel? = nil
+    
+    var hotelInfoArray: [HotelInfo] = [
+        (image: UIImage(named: "emojiHappy"), title: "Удобства", description: "Самое необходимое"),
+        (image:  UIImage(named: "checkMark"), title: "Что включено", description: "Самое необходимое"),
+        (image:  UIImage(named: "closeSquare"), title: "Что не включено", description: "Самое необходимое")
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,14 +84,20 @@ class HotelInfoViewController: UIViewController {
         self.priceForItLabel.text = hotel.priceForIt
         self.descriptionLabel.text = hotel.aboutTheHotel.description
         
+        self.hotelInfoTableView.layer.cornerRadius = 15
+        
         self.selectNumberButton.layer.cornerRadius = 15
         
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        let height = self.peculiaritiesCollectionView.collectionViewLayout.collectionViewContentSize.height
-        peculiaritiesCollectionViewHeight.constant = height
+        // change peculiaritiesCollectionView's height according content
+        let heightForPeculiarities = self.peculiaritiesCollectionView.collectionViewLayout.collectionViewContentSize.height
+        self.peculiaritiesCollectionViewHeight.constant = heightForPeculiarities
+
+        self.hotelInfoTableViewHeight.constant = self.hotelInfoTableView.contentSize.height
+
         self.view.layoutIfNeeded()
     }
     
@@ -99,8 +115,10 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
             
         case self.sliderCollectionView:
             return hotel.imageUrls.count
+            
         case self.peculiaritiesCollectionView:
             return hotel.aboutTheHotel.peculiarities.count
+            
         default:
             return 0
         }
@@ -155,6 +173,24 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
             return 10.0
         }
         return 0
+    }
+    
+}
+
+extension HotelInfoViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.hotelInfoArray.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: HotelInfoTableViewCell.cellID, for: indexPath) as? HotelInfoTableViewCell else { return UITableViewCell() }
+        
+        cell.configure(info: self.hotelInfoArray[indexPath.row])
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 61
     }
     
 }
