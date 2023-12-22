@@ -26,7 +26,10 @@
 		F54B66592B31F19A0063B83F /* SF-Pro-Display-SemiboldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F54B66472B31F19A0063B83F /* SF-Pro-Display-SemiboldItalic.otf */; };
 		F54B665A2B31F19A0063B83F /* SF-Pro-Display-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = F54B66482B31F19A0063B83F /* SF-Pro-Display-Semibold.otf */; };
 		F54B665B2B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = F54B66492B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf */; };
-		F599997D2B33204700028FA0 /* HotelPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */; };
+		F598F6762B360121000BAC2E /* SelectRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598F6752B360121000BAC2E /* SelectRoomViewController.swift */; };
+		F598F6792B3601CD000BAC2E /* RoomModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598F6782B3601CD000BAC2E /* RoomModel.swift */; };
+		F598F67C2B36089B000BAC2E /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F598F67B2B36089B000BAC2E /* RoomTableViewCell.swift */; };
+		F599997D2B33204700028FA0 /* SliderPictureCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F599997C2B33204700028FA0 /* SliderPictureCollectionViewCell.swift */; };
 		F59999812B3341C100028FA0 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F59999802B3341C100028FA0 /* DataManager.swift */; };
 		F5A79E3C2B31A6EA005FB0E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */; };
 		F5A79E3E2B31A6EA005FB0E1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5A79E3D2B31A6EA005FB0E1 /* SceneDelegate.swift */; };
@@ -59,7 +62,10 @@
 		F54B66472B31F19A0063B83F /* SF-Pro-Display-SemiboldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-SemiboldItalic.otf"; sourceTree = "<group>"; };
 		F54B66482B31F19A0063B83F /* SF-Pro-Display-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Semibold.otf"; sourceTree = "<group>"; };
 		F54B66492B31F19A0063B83F /* SF-Pro-Display-ThinItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-ThinItalic.otf"; sourceTree = "<group>"; };
-		F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotelPictureCollectionViewCell.swift; sourceTree = "<group>"; };
+		F598F6752B360121000BAC2E /* SelectRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectRoomViewController.swift; sourceTree = "<group>"; };
+		F598F6782B3601CD000BAC2E /* RoomModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomModel.swift; sourceTree = "<group>"; };
+		F598F67B2B36089B000BAC2E /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		F599997C2B33204700028FA0 /* SliderPictureCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderPictureCollectionViewCell.swift; sourceTree = "<group>"; };
 		F59999802B3341C100028FA0 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F5A79E382B31A6EA005FB0E1 /* HotelTestApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HotelTestApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +124,24 @@
 			path = Fonts;
 			sourceTree = "<group>";
 		};
+		F598F6772B36012A000BAC2E /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F5A79E3F2B31A6EA005FB0E1 /* HotelInfoViewController.swift */,
+				F598F6752B360121000BAC2E /* SelectRoomViewController.swift */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		F598F67A2B3604CB000BAC2E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F54B66352B31C6210063B83F /* HotelModel.swift */,
+				F598F6782B3601CD000BAC2E /* RoomModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		F5A79E2F2B31A6EA005FB0E1 = {
 			isa = PBXGroup;
 			children = (
@@ -140,11 +164,12 @@
 				F5A79E3B2B31A6EA005FB0E1 /* AppDelegate.swift */,
 				F5A79E3D2B31A6EA005FB0E1 /* SceneDelegate.swift */,
 				F59999802B3341C100028FA0 /* DataManager.swift */,
-				F5A79E3F2B31A6EA005FB0E1 /* HotelInfoViewController.swift */,
-				F599997C2B33204700028FA0 /* HotelPictureCollectionViewCell.swift */,
+				F598F67A2B3604CB000BAC2E /* Model */,
+				F598F6772B36012A000BAC2E /* ViewController */,
+				F599997C2B33204700028FA0 /* SliderPictureCollectionViewCell.swift */,
 				F5AD46322B3593E6007DF52F /* HotelInfoTableViewCell.swift */,
+				F598F67B2B36089B000BAC2E /* RoomTableViewCell.swift */,
 				F5C9145A2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift */,
-				F54B66352B31C6210063B83F /* HotelModel.swift */,
 				F5A79E412B31A6EA005FB0E1 /* Main.storyboard */,
 				F54B665D2B31F1D60063B83F /* Fonts */,
 				F5A79E442B31A6EB005FB0E1 /* Assets.xcassets */,
@@ -251,12 +276,15 @@
 			files = (
 				F54B66362B31C6210063B83F /* HotelModel.swift in Sources */,
 				F5A79E402B31A6EA005FB0E1 /* HotelInfoViewController.swift in Sources */,
+				F598F6792B3601CD000BAC2E /* RoomModel.swift in Sources */,
 				F5AD46332B3593E6007DF52F /* HotelInfoTableViewCell.swift in Sources */,
 				F59999812B3341C100028FA0 /* DataManager.swift in Sources */,
 				F5A79E3C2B31A6EA005FB0E1 /* AppDelegate.swift in Sources */,
-				F599997D2B33204700028FA0 /* HotelPictureCollectionViewCell.swift in Sources */,
+				F599997D2B33204700028FA0 /* SliderPictureCollectionViewCell.swift in Sources */,
+				F598F67C2B36089B000BAC2E /* RoomTableViewCell.swift in Sources */,
 				F5C9145B2B34721900F49C52 /* PeculiaritieCollectionViewCell.swift in Sources */,
 				F5A79E3E2B31A6EA005FB0E1 /* SceneDelegate.swift in Sources */,
+				F598F6762B360121000BAC2E /* SelectRoomViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -102,6 +102,7 @@ class HotelInfoViewController: UIViewController {
     }
     
     @IBAction func selectNumberAction(_ sender: Any) {
+        performSegue(withIdentifier: "openSelectRoomVC", sender: nil)
     }
     
 }
@@ -130,7 +131,7 @@ extension HotelInfoViewController: UICollectionViewDelegate, UICollectionViewDat
         switch collectionView {
             
         case self.sliderCollectionView:
-            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HotelPictureCollectionViewCell.cellID, for: indexPath) as? HotelPictureCollectionViewCell
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SliderPictureCollectionViewCell.cellID, for: indexPath) as? SliderPictureCollectionViewCell
             else { return UICollectionViewCell() }
             
             cell.configure(imageURL: hotel.imageUrls[indexPath.row])
