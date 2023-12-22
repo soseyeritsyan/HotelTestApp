@@ -17,7 +17,6 @@ class HotelInfoTableViewCell: UITableViewCell {
     @IBOutlet weak var arrowImageView: UIImageView!
     
     func configure(info: HotelInfo) {
-        self.arrowImageView.image = UIImage(named: "rightArrow")
         self.logoImageView.image = info.image
         self.titleLabel.text = info.title
         self.descriptionLabel.text = info.description
