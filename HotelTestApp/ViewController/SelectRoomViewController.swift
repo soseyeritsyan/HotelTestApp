@@ -45,13 +45,13 @@ extension SelectRoomViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let roomsData = self.roomsData else { return UITableViewCell() }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: RoomTableViewCell.cellID, for: indexPath) as? RoomTableViewCell else { return UITableViewCell() }
-        
+
         cell.configure(room: roomsData.rooms[indexPath.row])
         return cell
         
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 570
+        return UITableView.automaticDimension
     }
 }

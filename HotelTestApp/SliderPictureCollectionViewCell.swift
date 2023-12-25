@@ -10,7 +10,7 @@ import Kingfisher
 
 class SliderPictureCollectionViewCell: UICollectionViewCell {
     
-    static let cellID = "hotelImageCell"
+    static let cellID = "sliderPictureCell"
         
     @IBOutlet weak var imageView: UIImageView!
     

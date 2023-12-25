@@ -10,11 +10,13 @@ import UIKit
 class RoomTableViewCell: UITableViewCell {
     
     static let cellID = "roomCell"
-
+    
+    @IBOutlet weak var customBackgroundView: UIView!
     @IBOutlet weak var sliderCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var peculiaritiesCollectionView: UICollectionView!
+    @IBOutlet weak var peculiaritiesCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var pricePerLabel: UILabel!
     @IBOutlet weak var chooseNumberButton: UIButton!
@@ -27,22 +29,37 @@ class RoomTableViewCell: UITableViewCell {
     
     @IBAction func roomDetailsAction(_ sender: Any) {
     }
+    
     func configure(room: Room) {
         self.room = room
         self.pageControl.currentPage = 0
         self.nameLabel.text = room.name
         self.priceLabel.text = "\(room.price) ₽"
         self.pricePerLabel.text = room.pricePer
-        
+        self.sliderCollectionView.reloadData()
+        self.peculiaritiesCollectionView.reloadData()
+        self.updateCellHeight()
     }
-    
+
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.customBackgroundView.clipsToBounds = true
+        self.customBackgroundView.layer.cornerRadius = 15
         self.roomDetailsView.layer.cornerRadius = 5
         self.roomDetailsView.backgroundColor = self.roomDetailsView.backgroundColor?.withAlphaComponent(0.2)
         self.chooseNumberButton.layer.cornerRadius = 15
         self.pageControl.layer.cornerRadius = 5
+        self.sliderCollectionView.layer.cornerRadius = 15
+        
     }
+    
+    func updateCellHeight() {
+        let heightForPeculiarities = self.peculiaritiesCollectionView.collectionViewLayout.collectionViewContentSize.height
+        self.peculiaritiesCollectionViewHeight.constant = heightForPeculiarities
+
+    }
+
+
 }
 
 extension RoomTableViewCell: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
